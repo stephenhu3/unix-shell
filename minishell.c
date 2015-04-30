@@ -89,10 +89,10 @@ int main(int argc, char *argv[]) {
 				//printf("I'm a child process running a command!\n");
 				execv(command.name, command.argv);
 			}
-			} else {
-				if (command.runInBackground == 1)
-					//printf("I'm a parent process. My child is running in background!\n");
-			}
+		} //else {
+			// if (command.runInBackground == 1)
+			// 	printf("I'm a parent process. My child is running in background!\n");
+		//}
 
 		if (command.name == NULL) {
 			/* Report error */

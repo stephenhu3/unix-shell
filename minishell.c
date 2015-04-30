@@ -54,7 +54,7 @@ int main(int argc, char *argv[]) {
 
 			/* Child executing command */ 
 			if (strcmp(command.argv[0], "echo") == 0) { 
-				printf("I'm a child process running echo\n");
+				//printf("I'm a child process running echo\n");
 				char echoStr[CHAR_MAX];
 			    // Generate string of form "echo str"
 			    sprintf(echoStr, "echo %s", command.argv[1]);
@@ -67,7 +67,7 @@ int main(int argc, char *argv[]) {
 			    command.name = "yes";
 			}
 		 	else if (strcmp(command.argv[0], "cd") == 0) { 
-				printf("I'm a child process running cd\n");
+				//printf("I'm a child process running cd\n");
 				char cdStr[CHAR_MAX];
 			    // Generate string of form "cd str"
 			    sprintf(cdStr, "%s", command.argv[1]);
@@ -86,12 +86,12 @@ int main(int argc, char *argv[]) {
 				} 
 			}
 			else if (command.name[0] == '/') { 
-				printf("I'm a child process running a command!\n");
+				//printf("I'm a child process running a command!\n");
 				execv(command.name, command.argv);
 			}
 			} else {
 				if (command.runInBackground == 1)
-					printf("I'm a parent process. My child is running in background!\n");
+					//printf("I'm a parent process. My child is running in background!\n");
 			}
 
 		if (command.name == NULL) {
@@ -102,7 +102,7 @@ int main(int argc, char *argv[]) {
 		
 		/* Wait for the child to terminate */
 		if(command.runInBackground == 0) {
-			printf("I'm a parent process. I am waiting for my child to finish!\n");
+			//printf("I'm a parent process. I am waiting for my child to finish!\n");
 			wait(&status);
 		}
 
